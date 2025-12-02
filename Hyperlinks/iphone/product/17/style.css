@@ -1,0 +1,390 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #fbfbfd;
+    color: #1d1d1f;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    margin: 0px;
+    background-image: url("../../../../Resources/store_elements/ai_bar.png");
+    background-position: top;
+    background-size: 120%;
+    background-repeat: no-repeat;
+}
+
+.breadcrumb {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.breadcrumb a {
+    color: #86868b;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: #ff0000;
+}
+
+.breadcrumb .separator {
+    color: #86868b;
+}
+
+.breadcrumb .current {
+    color: #1d1d1f;
+    font-weight: 600;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+}
+
+.product-gallery {
+    position: sticky;
+    top: 100px;
+}
+
+.product-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease;
+}
+
+.product-gallery img:hover {
+    transform: scale(1.02);
+}
+
+.product-details h1 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.price-wrapper {
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #86868b;
+    font-size: 1.2rem;
+}
+
+.new-price {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1d1d1f;
+}
+
+#colors,
+#storage {
+    flex: 1;
+}
+
+#colors button,
+#storage button {
+    font-family: 'TASA Explorer', sans-serif;
+    margin-right: 0.5rem;
+    border: 2px solid transparent;
+    background-color: #f5f5f7;
+    color: black;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#colors button:hover,
+#storage button:hover {
+    background-color: #e8e8ed;
+    border-color: #ff0000;
+}
+
+#colors button.active,
+#storage button.active {
+    background-color: #ff0000;
+    color: white;
+    border-color: #ff0000;
+}
+
+#colors p,
+#storage p {
+    font-family: 'TASA Explorer', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.quantity-wrapper {
+    margin-bottom: 2rem;
+}
+
+.quantity-wrapper p {
+    font-family: 'TASA Explorer', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: fit-content;
+}
+
+.qty-btn {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #d2d2d7;
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qty-btn:hover {
+    background-color: #ff0000;
+    color: white;
+    border-color: #ff0000;
+}
+
+#quantity {
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: 2px solid #d2d2d7;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.cta-group {
+    display: flex;
+    gap: 1.5rem;
+    margin: 3.5rem 0;
+
+}
+
+.btn {
+    padding: 1.2rem 3rem;
+    border-radius: 980px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: #ff0000;
+    color: white;
+    box-shadow: 0 4px 12px rgba(227, 0, 0, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #ed0000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(237, 0, 0, 0.4);
+}
+
+.btn-secondary {
+    background-color: #f5f5f7;
+    color: #ff0000;
+}
+
+.btn-secondary:hover {
+    background-color: #d7d2d2;
+    transform: translateY(-2px);
+}
+
+/* Specifications Section */
+.specs-container {
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 1px solid #d2d2d7;
+}
+
+.specs-section {
+    margin-bottom: 3rem;
+}
+
+.specs-section h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1d1d1f;
+}
+
+.specs-section p {
+    color: #86868b;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 800px;
+    margin-bottom: 1rem;
+}
+
+.tech-specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.tech-specs-table tr {
+    border-bottom: 1px solid #d2d2d7;
+}
+
+.tech-specs-table th,
+.tech-specs-table td {
+    padding: 1.2rem 0;
+    text-align: left;
+    font-size: 1.05rem;
+}
+
+.tech-specs-table th {
+    width: 35%;
+    color: #86868b;
+    font-weight: 500;
+}
+
+.tech-specs-table td {
+    color: #1d1d1f;
+    font-weight: 500;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #f5f5f7;
+    padding: 3rem 2rem 1.5rem;
+    margin-top: 5rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1d1d1f;
+}
+
+.footer-section a {
+    display: block;
+    color: #86868b;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #ff0000;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid #d2d2d7;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #86868b;
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    main {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .product-gallery {
+        position: static;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .product-details h1 {
+        font-size: 2.5rem;
+    }
+
+    .cta-group {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}

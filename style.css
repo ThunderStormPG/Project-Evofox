@@ -1,0 +1,337 @@
+.body {
+    margin: 0px;
+    background-image: url("./Resources/store_elements/ai_bar.png");
+    background-position: top;
+    background-size: 120%;
+    background-repeat: no-repeat;
+}
+
+.logo {
+    padding-top: 0px;
+    display: inline-block;
+}
+
+.logoimg {
+    position: fixed;
+    height: 60px;
+    width: auto;
+    background-size: cover;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.header {
+    display: flex;
+}
+
+.buttonbar {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    gap: 6%;
+}
+
+.t1,
+.t2,
+.t3,
+.t4 {
+    font-family: "Boldonse", system-ui;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: 20;
+    background: #fff;
+    background-image: linear-gradient(to right, #000000, #000000);
+    background-size: 200% 100%;
+    background-position: -100%;
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.5s ease-in-out;
+}
+
+.t1:before,
+.t2:before,
+.t3:before,
+.t4:before,
+.t5:before {
+    content: "";
+    background: #ff0000;
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: all 0.5s ease-in-out;
+}
+
+.t1:hover,
+.t2:hover,
+.t3:hover,
+.t4:hover,
+.t5:hover {
+    background-position: 0;
+}
+
+.t1:hover::before,
+.t2:hover::before,
+.t3:hover::before,
+.t4:hover::before,
+.t5:hover::before {
+    width: 100%;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.t5 {
+    font-family: "Boldonse", system-ui;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: 20;
+    background: #fff;
+    background-image: linear-gradient(to right, #000000, #000000);
+    background-size: 200% 100%;
+    background-position: -100%;
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 10%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    top: 100%;
+    left: 0;
+    margin-top: 10px;
+    animation: fadeInDown 0.5s ease-in-out;
+
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: "Boldonse", system-ui;
+    font-size: 14px;
+    transition: background-color 0.5s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeInDown 0.5s ease-in-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cart {
+    margin-top: -0.3rem;
+    width: 3.5rem;
+    margin-right: 2rem;
+}
+
+.cart img {
+    width: 3.5rem;
+    cursor: pointer;
+}
+
+.cart img:hover {
+    background-image: url("./Resources/store_elements/cart_hover_light.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+
+}
+
+#ai_txt {
+    width: 20%;
+    position: absolute;
+    top: 0;
+}
+
+.topadv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 130px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.topadv img {
+    margin-top: 10%;
+    justify-content: center;
+    width: 60%;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    font-family: "Boldonse", system-ui;
+    color: black;
+    text-decoration: none;
+    font-weight: 50;
+    background: #fff;
+    width: 100%;
+}
+
+.grid {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    justify-content: space-evenly;
+}
+
+.arrow {
+    display: inline-block;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.arrow img {
+    height: 1rem;
+    margin-left: 0.5rem;
+}
+
+.iphonetile,
+.ipadtile,
+.mactile,
+.audiotile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    text-decoration: none;
+    color: #000;
+}
+
+.iphonetile a,
+.ipadtile a,
+.mactile a,
+.audiotile a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.i17pm img,
+.i17p img,
+.iair img,
+.i7 img {
+    width: 15rem;
+}
+
+.rowname {
+    font-family: "Boldonse", system-ui;
+    color: black;
+    text-decoration: none;
+    font-weight: 50;
+    background: #fff;
+}
+
+.iphonelist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iphonelist a p {
+    margin-top: -2.5rem;
+}
+
+.ipadpro img,
+.ipadair img,
+.ipadmini img,
+.ipad11th img {
+    width: 15rem;
+}
+
+.ipadlist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ipadlist a p {
+    margin-top: -2.5rem;
+}
+
+.maclist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.maclist a p {
+    margin-top: -0.6rem;
+}
+
+.imac img,
+.macpro img,
+.macbookair img,
+.macmini img {
+    margin-top: 4.2rem;
+    width: 15rem;
+}
+
+.audiolist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.airpodspro img,
+.airpods4 img,
+.airpodsmax img,
+.applemusic img {
+    margin-top: 2rem;
+    width: 15rem;
+}
