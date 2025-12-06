@@ -335,3 +335,61 @@
     margin-top: 2rem;
     width: 15rem;
 }
+
+/* Footer Styles */
+.footer {
+    background-color: #f5f5f7;
+    padding: 3rem 2rem 1.5rem;
+    margin-top: 5rem;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1d1d1f;
+}
+
+.footer-section a {
+    display: block;
+    color: #86868b;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s;
+    font-size: 14px;
+}
+
+.footer-section a:hover {
+    color: #ff0000;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid #d2d2d7;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #86868b;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design for Footer */
+@media (max-width: 900px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}

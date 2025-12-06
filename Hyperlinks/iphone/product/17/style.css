@@ -215,6 +215,9 @@ main {
     border: none;
     transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
     width: 100%;
+    display: block;
+    text-align: center;
+    text-decoration: none;
 }
 
 .btn-primary {
