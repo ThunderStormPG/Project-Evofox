@@ -34,7 +34,6 @@
     max-width: 80%;
     height: auto;
     border-radius: 20px;
-    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
     transition: transform 0.3s ease;
 }
 
@@ -129,7 +128,6 @@
 
     .product-specs li::before {
         display: none;
-        /* Hide bullet on mobile for centered text look */
     }
 
     .page-banner h1 {
