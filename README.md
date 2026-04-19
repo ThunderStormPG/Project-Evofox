@@ -14,7 +14,3 @@ ApplePriceTracker is a smart e-commerce aggregator that tracks and displays real
 Built to help users find the cheapest Apple products instantly without visiting dozens of websites.
 
 **Focus:** Only Apple ecosystem products.
-
----
-
-*Never overpay for Apple again.*
