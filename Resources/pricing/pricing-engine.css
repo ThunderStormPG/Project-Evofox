@@ -1,0 +1,304 @@
+/* ==========================================================
+   pricing-engine.css
+   Global shared stylesheet for Live Pricing & Smart Pick
+   Mobile-First · Container Queries · CSS Custom Properties
+   ========================================================== */
+
+/* ── 0. Custom Properties ───────────────────────────────── */
+:root {
+  --pe-bg:              #fafafa;
+  --pe-surface:         #ffffff;
+  --pe-border:          rgba(0, 0, 0, 0.08);
+  --pe-text-main:       #1d1d1f;
+  --pe-text-muted:      #86868b;
+  --pe-accent:          #5e5ce6;
+  --pe-accent-glow:     rgba(94, 92, 230, 0.18);
+  --pe-best-badge-bg:   #fdf2f2;
+  --pe-best-badge-col:  #ff3b30;
+  --pe-best-badge-bd:   #fecaca;
+
+  --pe-radius:          18px;
+  --pe-ease:            cubic-bezier(0.25, 1, 0.5, 1);
+  --pe-transition:      all 0.3s var(--pe-ease);
+
+  --pe-spacing:         clamp(1rem, 3vw, 2.5rem);
+}
+
+/* ── 1. Layout override for <main> ───────────────────────
+   The product style.css sets main { display: grid; grid-template-columns: 1fr 1fr }
+   We need .product-top to inherit that 2-col grid behaviour
+   and .live-pricing-container to break out as a full-width block.
+   ─────────────────────────────────────────────────────── */
+main {
+  /* Override: switch main from a 2-col grid to a normal block flow */
+  display: block !important;
+  padding: 4rem 2rem !important;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Restore the two-column product section inside its own sub-grid */
+.product-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+  /* Critical: sticky stops at the bottom of THIS container,
+     so the gallery never overlaps the pricing section below */
+  position: relative;
+}
+
+/* ── 2. Sticky gallery fix ───────────────────────────────
+   sticky is scoped to .product-top's height — once .product-top ends,
+   the gallery stops scrolling, and the pricing section appears cleanly.
+   ─────────────────────────────────────────────────────── */
+.product-gallery {
+  position: sticky;
+  top: 100px;
+  /* align-self ensures it stretches to the containing block edge */
+  align-self: start;
+}
+
+/* ── 3. Separator between product and pricing ────────────── */
+.live-pricing-container {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  width: 100%;
+  max-width: 100%;
+  margin: 4rem 0 0;
+  padding: var(--pe-spacing);
+  background:       var(--pe-bg);
+  border-radius:    var(--pe-radius);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  /* Container query context */
+  container-type:   inline-size;
+  container-name:   pricing;
+}
+
+/* ── 4. Header ───────────────────────────────────────────── */
+.pricing-header {
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 4cqi, 3rem);
+}
+
+.pricing-header h2 {
+  font-size: clamp(1.6rem, 5cqi, 2.6rem);
+  color:        var(--pe-text-main);
+  font-weight:  700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.4rem;
+}
+
+.pricing-header p {
+  color:      var(--pe-text-muted);
+  font-size:  clamp(0.9rem, 2cqi, 1.05rem);
+}
+
+/* ── 5. Pricing Grid ─────────────────────────────────────── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@container pricing (min-width: 600px) {
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+/* ── 6. Pricing Card ─────────────────────────────────────── */
+.pricing-card {
+  background:   var(--pe-surface);
+  border:       1px solid var(--pe-border);
+  border-radius: var(--pe-radius);
+  padding:      1.5rem;
+  display:      flex;
+  flex-direction: column;
+  align-items:  center;
+  text-align:   center;
+  transition:   var(--pe-transition);
+  position:     relative;
+  overflow:     hidden;
+}
+
+.pricing-card:hover {
+  transform:  translateY(-5px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06);
+}
+
+.platform-logo {
+  font-size:   1.4rem;
+  font-weight: 700;
+  color:       var(--pe-text-main);
+  margin-bottom: 0.5rem;
+  min-height:  2rem;
+  display:     flex;
+  align-items: center;
+}
+
+.platform-info {
+  color:         var(--pe-text-muted);
+  font-size:     0.85rem;
+  margin-bottom: 1rem;
+}
+
+.platform-price {
+  font-size:     1.9rem;
+  font-weight:   700;
+  color:         var(--pe-text-main);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.view-deal-btn {
+  background-color: var(--pe-text-main);
+  color:            white;
+  text-decoration:  none;
+  padding:          0.75rem 1.5rem;
+  border-radius:    999px;
+  font-weight:      600;
+  font-size:        0.9rem;
+  width:            100%;
+  display:          block;
+  transition:       var(--pe-transition);
+}
+
+.view-deal-btn:hover {
+  background-color: #000;
+  transform:        scale(1.02);
+}
+
+/* "Best Value" badge inside card */
+.card-badge {
+  position:   absolute;
+  top:        0.9rem;
+  right:      0.9rem;
+  background: var(--pe-best-badge-bg);
+  color:      var(--pe-best-badge-col);
+  border:     1px solid var(--pe-best-badge-bd);
+  font-size:  0.72rem;
+  font-weight: 700;
+  padding:    0.25rem 0.6rem;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* ── 7. Skeleton Loaders ─────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #ebebeb 25%,
+    #f5f5f5 50%,
+    #ebebeb 75%
+  );
+  background-size: 400% 100%;
+  animation: pe-shimmer 1.6s infinite ease-in-out;
+  border-radius: 8px;
+}
+
+@keyframes pe-shimmer {
+  0%   { background-position:  200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.sk-logo  { width: 110px; height: 28px;  margin-bottom: 1rem; }
+.sk-info  { width:  80px; height: 14px;  margin-bottom: 1rem; }
+.sk-price { width: 140px; height: 36px;  margin-bottom: 1.5rem; }
+.sk-btn   { width: 100%;  height: 44px;  border-radius: 999px; }
+
+/* ── 8. Smart Pick Section ───────────────────────────────── */
+.smart-pick-section {
+  position:     relative;
+  background:   var(--pe-surface);
+  border:       1px solid var(--pe-border);
+  border-radius: var(--pe-radius);
+  padding:      2.5rem 2rem;
+  margin-top:   3rem;
+  display:      flex;
+  flex-direction: column;
+  align-items:  center;
+  text-align:   center;
+  overflow:     visible;
+}
+
+/* Glassmorphism AI badge */
+.ai-badge {
+  position:        absolute;
+  top:             -18px;
+  left:            50%;
+  transform:       translateX(-50%);
+  background:      rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border:          1px solid rgba(94, 92, 230, 0.35);
+  box-shadow:      0 4px 16px rgba(94, 92, 230, 0.12);
+  background-image: linear-gradient(
+    135deg,
+    rgba(94, 92, 230, 0.12),
+    rgba(52, 211, 214, 0.1)
+  );
+  color:           var(--pe-accent);
+  font-weight:     700;
+  font-size:       0.82rem;
+  letter-spacing:  0.06em;
+  text-transform:  uppercase;
+  padding:         0.4rem 1.2rem;
+  border-radius:   999px;
+  white-space:     nowrap;
+  display:         flex;
+  align-items:     center;
+  gap:             0.4rem;
+}
+
+.smart-pick-title {
+  font-size:   clamp(1.3rem, 3cqi, 1.9rem);
+  font-weight: 700;
+  color:       var(--pe-text-main);
+  margin:      0.5rem 0;
+  letter-spacing: -0.02em;
+}
+
+.smart-pick-desc {
+  color:       var(--pe-text-muted);
+  font-size:   0.95rem;
+  max-width:   500px;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+#ai-best-deal-container {
+  width:     100%;
+  max-width: 360px;
+}
+
+/* Best-pick card accent */
+#ai-best-deal-container .pricing-card {
+  border-color: var(--pe-accent);
+  box-shadow:   0 4px 24px var(--pe-accent-glow);
+}
+
+#ai-best-deal-container .view-deal-btn {
+  background: linear-gradient(135deg, var(--pe-accent), #34d3d6);
+}
+
+#ai-best-deal-container .view-deal-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+
+/* ── 9. Mobile responsive overrides ─────────────────────── */
+@media (max-width: 900px) {
+  .product-top {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .product-gallery {
+    position: static;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
