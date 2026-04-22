@@ -1,0 +1,138 @@
+.product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.product-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.product-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 20px;
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
+    transition: transform 0.3s ease;
+}
+
+.product-image img:hover {
+    transform: scale(1.05);
+}
+
+.product-title {
+    font-family: "Boldonse", system-ui;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #000, #434343);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.product-specs {
+    list-style: none;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.product-specs li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.product-specs li::before {
+    content: "•";
+    color: #000;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.buy-btn {
+    display: inline-block;
+    padding: 12px 35px;
+    background: #0071e3;
+    color: white;
+    text-decoration: none;
+    border-radius: 980px;
+    font-family: system-ui;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.buy-btn:hover {
+    background: #0077ed;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 113, 227, 0.4);
+}
+
+.page-banner {
+    text-align: center;
+    padding: 18rem 1rem 8rem;
+    margin-bottom: 2rem;
+}
+
+.page-banner h1 {
+    font-family: "Boldonse", system-ui;
+    font-size: 5rem;
+    margin: 0;
+    color: #1d1d1f;
+}
+
+.page-banner p {
+    font-size: 1.8rem;
+    color: #86868b;
+    margin-top: 1rem;
+    font-family: system-ui;
+}
+
+@media (max-width: 768px) {
+    .product-item {
+        flex-direction: column !important;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .product-specs li {
+        justify-content: center;
+    }
+
+    .product-specs li::before {
+        display: none;
+        /* Hide bullet on mobile for centered text look */
+    }
+
+    .page-banner h1 {
+        font-size: 3rem;
+    }
+}
